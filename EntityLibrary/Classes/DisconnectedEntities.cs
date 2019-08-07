@@ -66,6 +66,16 @@ namespace EntityLibrary.Classes
                 context.Products.Add(product);
             }
         }
+
+        public void DeleteProduct(Product product)
+        {
+            using (var context = new NorthWindContext())
+            {
+                context.Entry(product).State = EntityState.Deleted;
+                context.SaveChanges();
+            }
+        }
+
         /// <summary>
         /// Demonstrates multi-purpose method for add or update
         /// </summary>

@@ -33,7 +33,6 @@ namespace EntityLibrary.Classes
         {
             using (var context = new NorthWindContext())
             {
-                context.Configuration.AutoDetectChangesEnabled = false;
                 return context.Products.AsNoTracking().Count();
             }
         }
