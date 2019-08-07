@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityLibrary", "EntityLibrary\EntityLibrary.csproj", "{1E2BEC51-72AA-4326-985D-06250499EC0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{BA544A3A-AAE4-4DA7-8D3F-A2AC1746199C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{AF2E4546-7B95-4A8D-93EB-BC3C8335A99D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Front ends", "Front ends", "{7B0EBC13-ADBB-4644-A312-3046BCD758C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{046055F2-8B24-47FA-8453-E01572711387}"
+	ProjectSection(SolutionItems) = preProject
+		DataScript.sql = DataScript.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E2BEC51-72AA-4326-985D-06250499EC0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E2BEC51-72AA-4326-985D-06250499EC0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E2BEC51-72AA-4326-985D-06250499EC0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E2BEC51-72AA-4326-985D-06250499EC0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA544A3A-AAE4-4DA7-8D3F-A2AC1746199C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA544A3A-AAE4-4DA7-8D3F-A2AC1746199C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA544A3A-AAE4-4DA7-8D3F-A2AC1746199C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA544A3A-AAE4-4DA7-8D3F-A2AC1746199C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1E2BEC51-72AA-4326-985D-06250499EC0B} = {AF2E4546-7B95-4A8D-93EB-BC3C8335A99D}
+		{BA544A3A-AAE4-4DA7-8D3F-A2AC1746199C} = {7B0EBC13-ADBB-4644-A312-3046BCD758C7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78CF93ED-C4F8-45C5-A866-179D741A6E81}
+	EndGlobalSection
+EndGlobal
