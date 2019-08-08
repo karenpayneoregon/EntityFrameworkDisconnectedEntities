@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,6 +37,27 @@ namespace EntityLibrary.Classes
                 return context.Products.AsNoTracking().Count();
             }
         }
+        /// <summary>
+        /// Forum question on performing a IN condition.
+        /// </summary>
+        public void CountOrders()
+        {
+            string[] shipCountries = { "Switzerland", "Germany", "USA" };
+            int year = 2014;
+            using (var context = new NorthWindContext())
+            {
+                context.Configuration.LazyLoadingEnabled = false;
+                var results = context
+                    .Orders
+                    .AsNoTracking()
+                    .Where(ord => shipCountries.Contains(ord.ShipCountry) && 
+                                  DbFunctions.TruncateTime(ord.OrderDate).Value.Year == year)
+                    .ToList();
+
+                var count = results.Count;
+            }
+        }
+
         public int CountProducts1() 
         {
             using (var context = new NorthWindContext())
@@ -117,6 +139,33 @@ namespace EntityLibrary.Classes
                 }
 
                 Console.WriteLine(context.SaveChanges());
+            }
+        }
+        /// <summary>
+        /// Alternate for Distinct
+        /// </summary>
+        /// <remarks>
+        /// Validate results via
+        ///     SELECT OrderID FROM [Order Details] GROUP BY OrderID ;
+        /// </remarks>
+        public void DistinctExample()
+        {
+            using (var context = new NorthWindContext())
+            {
+                context.Configuration.AutoDetectChangesEnabled = false;
+                context.Configuration.LazyLoadingEnabled = false;
+
+                var orderDetailsResults = (from order in context.Orders
+                        join orderDetail in context.Order_Details on 
+                            order.OrderID equals orderDetail.OrderID
+                        select orderDetail)
+                    .AsNoTracking()
+                    .ToList();
+
+                var finalResult = orderDetailsResults
+                    .GroupBy(od => od.OrderID)
+                    .Select(grouping => grouping.First())
+                    .ToList();
             }
         }
     }
